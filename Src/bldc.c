@@ -220,7 +220,7 @@ void DMA1_Channel1_IRQHandler(void) {
     uint8_t encoding = (uint8_t)((hall_ul<<2) + (hall_vl<<1) + hall_wl);
     int wheel_pos = rtConstP.vec_hallToPos_Value[encoding];
 
-    odom_l = modulo(odom_l + up_or_down(wp_l_previous, wheel_pos), 9000);
+    odom_l = (odom_l + up_or_down(wp_l_previous, wheel_pos) % 30000;
     wp_l_previous = wheel_pos;
 
 
@@ -264,7 +264,7 @@ void DMA1_Channel1_IRQHandler(void) {
 
     encoding = (uint8_t)((hall_ur<<2) + (hall_vr<<1) + hall_wr);
     wheel_pos = rtConstP.vec_hallToPos_Value[encoding];
-    odom_r = modulo(odom_r - up_or_down(wp_r_previous, wheel_pos), 9000);
+    odom_r = (odom_r - up_or_down(wp_r_previous, wheel_pos) % 30000;
     wp_r_previous = wheel_pos;
 
     /* Apply commands */
