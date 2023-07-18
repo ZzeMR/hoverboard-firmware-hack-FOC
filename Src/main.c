@@ -586,7 +586,7 @@ int main(void) {
     inactivity_timeout_counter++;
 
     // ####### INACTIVITY TIMEOUT #######
-    if (abs(cmdL) > 50 || abs(cmdR) > 50) {
+    if (abs(cmdL) > 5 || abs(cmdR) > 5) {
       inactivity_timeout_counter = 0;
     }
 
